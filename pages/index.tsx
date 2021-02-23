@@ -6,6 +6,23 @@ interface HomeProps {
   jobs: GithubJob[]
 }
 export default function Home(props: HomeProps) {
+  const handleSearch = () => {
+    fetch('/api', {
+      method: 'post',
+      body: JSON.stringify({
+        fullTime: true,
+        location: 'New York',
+        page: 1,
+        term: 'react',
+      }),
+    })
+      .then((res) => res.json())
+      .then(console.log)
+      .catch(console.log)
+  }
+  useEffect(() => {
+    handleSearch()
+  }, [])
   return (
     <Layout title='Home'>
       {props.jobs.map((job) => (
