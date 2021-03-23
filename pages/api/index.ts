@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+
 import { API_URL } from '../../lib/api'
 
 export default async ({ body }: Request, res: Response) => {
@@ -20,7 +21,7 @@ export default async ({ body }: Request, res: Response) => {
     query = query.substring(1)
   }
   try {
-    const data = await fetch(`${API_URL}.json`)
+    const data = await fetch(`${API_URL}.json?${query}`)
     const json = await data.json()
     res.status(200).json(json)
   } catch (err) {

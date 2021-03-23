@@ -13,6 +13,9 @@
 .header-brand {
   font-weight: bold;
 }
+.header-title {
+  cursor: pointer;
+}
 
 .main {
   min-height: 70vh;
